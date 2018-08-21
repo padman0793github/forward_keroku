@@ -9,8 +9,6 @@ var http = require('http');
 var zlib = require('zlib');
 
 var app = express();
-app.use(express.static('./public'));
-
 app.use(express.static('./public'));//static pages like html
 
 //anything else
@@ -27,7 +25,7 @@ app.get('*', function (req, res) {
   request(options, function(err, response, body){
       res.send(body);
   });
-  console.log(getDateTime() + " :" + req.headers['x-forwarded-for'] + " :path=" + req.url);
+  //console.log(getDateTime() + " :" + req.headers['x-forwarded-for'] + " :path=" + req.url);
 });
 
 app.listen(PORT, function() { console.log('listening')});//starts server
