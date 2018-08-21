@@ -15,7 +15,7 @@ app.use(express.static('./public'));//static pages like html
 
 //anything else
 app.get('*', function (req, res) {
-  var key = req.headers['X-API-Key']
+  var key = req.get('X-API-Key')
 
   var options = {
     url: req.url.substring(1),
